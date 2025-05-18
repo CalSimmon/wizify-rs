@@ -1,9 +1,11 @@
 use wizify::Wizard;
 
 #[derive(Wizard, Debug)]
-#[wizard(begin_msg = "✨ Hello, and welcome to the wizify creation wizard 🐧\n\n",
+#[wizard(
+    begin_msg = "✨ Hello, and welcome to the wizify creation wizard 🐧\n\n",
     closing_msg = "\nThat was the demonstration of the wizify creation wizard. 🌛",
-    prefix = " ❓ => ")]
+    prefix = " ❓ => "
+)]
 struct Testing {
     #[wizard(prompt = "Enter your name (Optional)")]
     name: Option<String>,
