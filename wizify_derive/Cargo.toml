@@ -12,3 +12,4 @@ proc-macro = true
 proc-macro2 = "*"
 syn = { version = "*", features = ["extra-traits"]}
 quote = "*"
+proc-macro-error2 = "*"
