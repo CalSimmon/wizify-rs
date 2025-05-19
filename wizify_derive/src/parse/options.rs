@@ -1,4 +1,26 @@
-pub fn extract_type_from_option(ty: &syn::Type) -> Option<&syn::Type> {
+pub fn parse_option(field: &Field) -> (bool, &syn::Type) {
+    let mut is_option: bool = false;
+    let mut ty: &syn::Type = &field.ty;
+
+    match &field.ty {
+        syn::Type::Path(type_path) => {
+            is_option = type_path
+                .path
+                .segments
+                .last()
+                .map(|s| s.ident == "Option")
+                .unwrap_or(false);
+            if is_option {
+                ty = extract_type_from_option(&ty);
+            };
+        }
+        _ => (),
+    };
+
+    (is_option, ty)
+}
+
+fn extract_type_from_option(ty: &syn::Type) -> Option<&syn::Type> {
     if let syn::Type::Path(syn::TypePath { qself: None, path }) = ty {
         let segments_str = &path
             .segments

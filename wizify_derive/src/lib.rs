@@ -2,11 +2,11 @@ mod attributes;
 mod parse;
 mod error;
 
-use attributes::types::TypeAttributes;
+use attributes::{fields::FieldAttributes, types::TypeAttributes};
 use error::Error;
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{parse_macro_input, Data, DataEnum, DataStruct, DeriveInput};
+use syn::{parse_macro_input, Data, DataEnum, DataStruct, DeriveInput, Field, Fields};
 
 #[proc_macro_derive(Wizard, attributes(wizard))]
 pub fn derive_wizard(input: TokenStream) -> TokenStream {
@@ -20,7 +20,7 @@ fn impl_wizard(ast: &DeriveInput) -> TokenStream {
         .map_err(error::abort)
         .unwrap();
 
-    let info = collect_info(ast, &attrs)
+    let field_inits = collect_info(ast, &attrs)
         .map_err(error::abort)
         .unwrap();
 
@@ -188,7 +188,37 @@ fn collect_info_struct(
     ast: &DataStruct,
     attrs: &TypeAttributes,
 ) ->Result<TokenStream, Error> {
+    // Get all fields
+    
+    // If they are an option, get the internal type
+    //
+    // Return the entire token stream
     Err(Error::message("Function has not been implemented yet..."))
+}
+
+fn prompt_from_fields(
+    fields: &Fields,
+    attrs: &TypeAttributes,
+) -> Result<TokenStream, Error> {
+    let field_attrs = fields
+        .into_iter()
+        .map(|field| -> Result<_, Error> {
+            let field_name = &field.ident.unwrap();
+            let mut attributes = FieldAttributes::parse(&field.attrs, field_name);
+            
+            if attrs.prefix.is_some() {
+                attributes.unwrap().add_prefix(&attrs.prefix.unwrap());
+            }
+
+            Ok(attributes)
+        });
+}
+
+fn generate_prompt(
+    field: &Field,
+    attrs: &TypeAttributes,
+) -> Return<TokenStream, Error> {
+
 }
 
 // TODO - Implement enum info gathering
