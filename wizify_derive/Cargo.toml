@@ -15,7 +15,7 @@ path = "src/lib.rs"
 proc-macro = true
 
 [dependencies]
-proc-macro2 = "*"
-syn = { version = "*", features = ["extra-traits"]}
-quote = "*"
-proc-macro-error2 = "*"
+proc-macro2 = "1.0.95"
+syn = { version = "2.0.101", features = ["extra-traits"]}
+quote = "1.0.40"
+proc-macro-error2 = "2.0.1"
