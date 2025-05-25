@@ -11,7 +11,7 @@ struct Testing {
     name: Option<String>,
     #[wizard(prompt = "Enter your favorite color")]
     favorite_color: String,
-    #[wizard(prompt = "Enter your favorite number between 0 and 9", validate = input < 10)]
+    #[wizard(prompt = "Enter your favorite number between 0 and 9", validation = input < 10)]
     favorite_number: i32,
 }
 

@@ -25,16 +25,18 @@ impl FieldAttributes {
     }
 
     pub fn generate_prompt(&mut self, field: &Field, attrs: &TypeAttributes) -> TokenStream {
+        self.add_prefix(&attrs.prefix.clone().unwrap());
+
         let (is_option, ty) = parse::options::parse_option(field);
 
-        let validation = if let Some(expr) = self.validation {
+        let validation = if let Some(expr) = &self.validation {
             quote! {
                 .validate_with(|i: &#ty| -> Result<(), &str> {
                     let input = *i;
                     if #expr {
                         Ok(())
                     } else {
-                        Err("This input is not valid...\n => Please ensure that #expr")
+                        Err("This input is not valid...")
                     }
                 })
             }
@@ -42,7 +44,7 @@ impl FieldAttributes {
             quote! {}
         };
 
-        let prompt = self.prompt;
+        let prompt = &self.prompt;
         let ident = &field.ident;
 
         let field_prompt = if is_option {

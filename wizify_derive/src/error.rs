@@ -11,14 +11,14 @@ pub enum Error {
 }
 
 impl Error {
-    pub fn new<E>(error: E, span: Span, help: Option<String>) -> Self
-    where
-        E: Into<String>,
-    {
-        let error = error.into();
-        Self::Custom { error, help, span }
-    }
-
+//    pub fn new<E>(error: E, span: Span, help: Option<String>) -> Self
+//    where
+//        E: Into<String>,
+//    {
+//        let error = error.into();
+//        Self::Custom { error, help, span }
+//    }
+//
     pub fn message<E>(error: E) -> Self
     where
         E: Into<String>,

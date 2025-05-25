@@ -1,3 +1,5 @@
+use syn::Field;
+
 pub fn parse_option(field: &Field) -> (bool, &syn::Type) {
     let mut is_option: bool = false;
     let mut ty: &syn::Type = &field.ty;
@@ -11,7 +13,7 @@ pub fn parse_option(field: &Field) -> (bool, &syn::Type) {
                 .map(|s| s.ident == "Option")
                 .unwrap_or(false);
             if is_option {
-                ty = extract_type_from_option(&ty);
+                ty = extract_type_from_option(&ty).expect("Inner type should not be None...");
             };
         }
         _ => (),
