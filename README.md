@@ -1,4 +1,5 @@
-![Static Badge](https://img.shields.io/badge/github-calsimmon%2Fwifizy--rs-8da0cb?style=for-the-badge&logo=github&link=https%3A%2F%2Fgithub.com%2FCalSimmon%2Fwizify-rs)
+[<img alt="Github Repo" src="https://img.shields.io/badge/github-calsimmon%2Fwifizy--rs-8da0cb?style=for-the-badge&logo=github">](https://github.com/CalSimmon/wizify-rs)
+[<img alt="Crates.io" src="https://img.shields.io/badge/crates.io-v0.0.1-fc8d62?style=for-the-badge&logo=rust">](https://crates.io/crates/wizify)
 
 # wizify
 
