@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/github-calsimmon%2Fwifizy--rs-8da0cb?style=for-the-badge&logo=github&link=https%3A%2F%2Fgithub.com%2FCalSimmon%2Fwizify-rs)
+
 # wizify
 
 Quick and simple tool to generate a creation wizard based directly off a struct. Uses your field name along with dialoguer to provide
