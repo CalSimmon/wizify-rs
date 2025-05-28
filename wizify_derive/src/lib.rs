@@ -27,15 +27,29 @@ fn impl_wizard(ast: &DeriveInput) -> TokenStream {
         .unwrap();
 
     let (begin_msg, closing_msg) = (attrs.begin_msg, attrs.closing_msg);
+    let begin = if let Some(msg) = begin_msg {
+        quote! {
+            print!("{}", #msg);
+        }
+    } else {
+        quote! {}
+    };
+    let closing = if let Some(msg) = closing_msg {
+        quote! {
+            print!("{}", #msg);
+        }
+    } else {
+        quote! {}
+    };
 
     let expanded = quote! {
         impl Wizard for #name {
             fn wizard() -> Self {
-                print!("{}", #begin_msg);
+                #begin
                 let output = Self {
                     #(#field_inits),*
                 };
-                print!("{}", #closing_msg);
+                #closing
 
                 output
             }

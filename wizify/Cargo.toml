@@ -1,7 +1,7 @@
 [package]
 name = "wizify"
 description = "A macro library for generating a creation wizard from a struct"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2024"
 authors = ["Caleb Simmons"]
 license = "MIT"
@@ -10,5 +10,5 @@ repository = "https://github.com/CalSimmon/wizify-rs"
 keywords = ["wizard", "creation", "create", "dialogue"]
 
 [dependencies]
-wizify_derive = "0.0.1"
+wizify_derive = { version = "*", path = "../wizify_derive/"}
 dialoguer = "0.11.0"

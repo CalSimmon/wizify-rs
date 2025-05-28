@@ -25,7 +25,9 @@ impl FieldAttributes {
     }
 
     pub fn generate_prompt(&mut self, field: &Field, attrs: &TypeAttributes) -> TokenStream {
-        self.add_prefix(&attrs.prefix.clone().unwrap());
+        if attrs.prefix.is_some() {
+            self.add_prefix(&attrs.prefix.clone().unwrap());
+        }
 
         let (is_option, ty) = parse::options::parse_option(field);
 

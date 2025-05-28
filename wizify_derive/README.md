@@ -1,5 +1,6 @@
-[<img alt="Github Repo" src="https://img.shields.io/badge/github-calsimmon%2Fwifizy--rs-8da0cb?style=for-the-badge&logo=github">](https://github.com/CalSimmon/wizify-rs)
-[<img alt="Crates.io" src="https://img.shields.io/badge/crates.io-v0.0.1-fc8d62?style=for-the-badge&logo=rust">](https://crates.io/crates/wizify)
+[<img alt="Github Repo" src="https://img.shields.io/badge/github-calsimmon%2Fwifizy--rs-8da0cb?style=for-the-badge&logo=github" height="20">](https://github.com/CalSimmon/wizify-rs)
+[<img alt="Crates.io" src="https://img.shields.io/badge/crates.io-v0.0.1-fc8d62?style=for-the-badge&logo=rust" height="20">](https://crates.io/crates/wizify)
+[<img alt="Docs.rs" src="https://img.shields.io/badge/docs.rs-wizify-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/wizify)
 
 # wizify
 
